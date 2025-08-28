@@ -52,3 +52,15 @@ body {
     border: none;
     cursor: pointer;
 }
+
+.error {
+    color: #fff;
+    margin-top: 1em;
+    text-align: center;
+}
+
+.info {
+    color: #ffffff;
+        margin-top: 1em;
+
+}
