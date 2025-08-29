@@ -4,7 +4,7 @@ let results = document.querySelector("#result");
 
 function getData() {
     let movieNameData = movieName.value;
-    let url = `http://www.omdbapi.com/?t=${movieNameData}&apikey=${api}`;
+    let url = `https://www.omdbapi.com/?t=${movieNameData}&apikey=${api}`;
     
     if(movieNameData <= 0) {
         results.innerHTML = `<h2 class="error">Please type a movie name to show results</h2>`;
@@ -12,19 +12,6 @@ function getData() {
         fetch(url)
         .then((resp) => resp.json())
         .then((data) => {
-            console.log(data.Title)
-            console.log(data.Actors)
-            console.log(data.Year)
-            console.log(data.Rated)
-            console.log(data.Genre)
-            console.log(data.Runtime)
-            console.log(data.Poster)
-            console.log(data.Director)
-            console.log(data.Writer)
-            console.log(data.Plot)
-            console.log(data.Released)
-            console.log(data.imdbRating)
-            console.log(data.Country)
 
             results.innerHTML = `
                 <div class="info">
@@ -33,9 +20,12 @@ function getData() {
                     </div>
                     <div class="information">
                         <div class="title">${data.Title}</div>
-                        <div class="rating">Rating: ${data.imdbRating} <img src="https://staging.svgrepo.com/show/111254/star.svg"> </div>
+                        <div class="age">${data.Rated}</div>
+                        <div class="rating">Rating: ${data.imdbRating}/10 <img src="https://staging.svgrepo.com/show/111254/star.svg"> </div>
                         <div class="release">Release date: <br>${data.Released} </div>
-                        <div class="genre">${data.Genre}</div>
+                        <div class="genre">
+                        <div>${data.Genre}</div>
+                        </div>
                         <div class="country">Country: ${data.Country}</div>
                         <div class="runtime">Runtime: ${data.Runtime}</div>
                         <div class="director">Director/s: ${data.Director}</div>
@@ -43,6 +33,9 @@ function getData() {
                         <div class="write">Writer/s: ${data.Writer}</div>
                     </div>
                 </div>
+                <br>
+                <div class="plot">${data.Plot}</div>
+
             `
         });
     }
