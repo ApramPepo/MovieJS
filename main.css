@@ -59,8 +59,30 @@ body {
     text-align: center;
 }
 
+.title{
+    font-weight: 600;
+    font-size: larger;
+}
+
 .info {
     color: #ffffff;
-        margin-top: 1em;
+    margin-top: 1em;
+    display: flex;
+    gap: 2em;
+}
 
+.information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.information img {
+    height: 20px;
+}
+
+.rating {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
 }

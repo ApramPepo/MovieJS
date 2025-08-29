@@ -28,9 +28,20 @@ function getData() {
 
             results.innerHTML = `
                 <div class="info">
-                    <img src=${data.Poster} class="poster">
-                    <div class="title">${data.Title}</div>
-                    <div class="year">Release date: ${data.Year}</div>
+                    <div class="image">
+                        <img src=${data.Poster} class="poster">
+                    </div>
+                    <div class="information">
+                        <div class="title">${data.Title}</div>
+                        <div class="rating">Rating: ${data.imdbRating} <img src="https://staging.svgrepo.com/show/111254/star.svg"> </div>
+                        <div class="release">Release date: <br>${data.Released} </div>
+                        <div class="genre">${data.Genre}</div>
+                        <div class="country">Country: ${data.Country}</div>
+                        <div class="runtime">Runtime: ${data.Runtime}</div>
+                        <div class="director">Director/s: ${data.Director}</div>
+                        <div class="actors">Actors: ${data.Actors}</div>
+                        <div class="write">Writer/s: ${data.Writer}</div>
+                    </div>
                 </div>
             `
         });
@@ -40,4 +51,10 @@ function getData() {
 window.addEventListener("load", getData);
 searchBtn.addEventListener("click", () => {
     getData();
+})
+
+window.addEventListener("keydown", function(event) {
+    if (event.key === 'Enter') {
+        getData();
+    }
 })
